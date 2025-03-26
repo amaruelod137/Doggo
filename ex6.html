@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Doggy</title>
+    </head>
+    <body>
+        <h1>Doggo</h1>
+        <img id="dog-image" src="" width="300"><br>
+        <button onclick="fetchDogImage()">Next Pupper</button>
+
+        <script>
+            function fetchDogImage() {
+                fetch("https://dog.ceo/api/breeds/image/random")
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("dog-image").src = data.message;
+                })
+                .catch(error => console.error("error fetching data:", error));
+            }
+            fetchDogImage();
+        </script>
+    </body>
+</html>
